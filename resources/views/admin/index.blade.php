@@ -44,7 +44,7 @@
                                 <td>{{$inc}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->user_type}}</td>
+                                <td>{{$user->getRole->display_name}}</td>
                             </tr>
                         <?php $inc++; ?>    
                         @endforeach 

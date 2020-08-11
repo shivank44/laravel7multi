@@ -25,10 +25,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users=User::select('users.id AS id','email','users.name AS name','display_name AS user_type')
-        ->join('roles','roles.id','users.role_id')
+        $users=User::select('id','email','name','role_id')
+        ->with('getRole')
         ->where('users.id','!=','1')
         ->where('status','1')->get();
+        //dd($users);
         return view('admin.index', compact('users'));
     }
 }
